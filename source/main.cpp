@@ -91,6 +91,13 @@ int main(int argc, const char * argv[]) {
                 std::cout <<"\thueedit --create huemul huecvsfile\n";
                 std::cout <<"\t\tCreates a huemul from the cvs file.\n";
                 std::cout <<"\n" ;
+                std::cout <<"Note:\n";
+                std::cout <<"\t The color channels in the csv range from 0-31 (5 bit channels)\n";
+                std::cout <<"\n";
+                std::cout <<"\t--maxhue=# allows one to create hue files greater then 3000 entries.\n";
+                std::cout <<"\t\t# is the largest number of hue entries supported. Remember hue id of 0\n";
+                std::cout <<"\t\tis an entry!\n";
+                std::cout <<std::endl;
                 break;
             }
             case action_t::merge:{
