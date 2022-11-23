@@ -1,4 +1,4 @@
-# hueedit
+
 Usage:
 	hueedit --merge huemulsrc huemuladdition huemuldest
 		Merges the entries,from huemuladdition, into the huemulsrc, and saved to huemuldest.
