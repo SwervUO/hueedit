@@ -237,33 +237,36 @@ auto huestorage_t::importText(const std::filesystem::path &huepath)->void{
     if (!input.is_open()){
         throw std::runtime_error("Unable to open: "s + huepath.string());
     }
-    auto buffer = std::vector<char>(2049,0) ;
+    auto buffer = std::vector<char>(4049,0) ;
+    auto linecount = 0 ;
     while (input.good() && !input.eof()){
-        input.getline(buffer.data(), 2048);
+        input.getline(buffer.data(), 4048);
+        linecount++ ;
         if (input.gcount()>0){
             // This might have the \n or not, who knows
             buffer[input.gcount()] = 0 ;
-            std::string line = buffer.data() ;
-            auto pos = line.find_first_of("\n") ;
-            if (pos != std::string::npos){
-                line = line.substr(0,pos) ;
-            }
-            line = strutil::trim(line) ;
+            std::string line = std::string(buffer.data(),buffer.data()+input.gcount()) ;
+            line = strutil::trim(line);
             if (!line.empty()){
                 auto [first,rest] = strutil::split(line, ",");
                 if (strutil::lower(first) != "hueid"){
                     // Ok, so the first is the hue id, and the rest is the huedata
                     auto id = strutil::ston<std::uint32_t>(first) ;
-                   
-                    auto needed = id +1 ;
-                    if (needed > huedata.size()){
-                        // Ok, so we need to increase the data size, check to see if exceeds
-                        huedata.resize(needed);
-                        if (huedata.size()> huemax){
-                            throw std::runtime_error("Exceeds max number of hues of: "s + std::to_string(huemax));
+                    if (!rest.empty()){
+                        auto needed = id +1 ;
+                        if (needed > huedata.size()){
+                            // Ok, so we need to increase the data size, check to see if exceeds
+                            huedata.resize(needed);
+                            if (huedata.size()> huemax){
+                                throw std::runtime_error("Exceeds max number of hues of: "s + std::to_string(huemax));
+                            }
                         }
+                        huedata[id]= hueentry_t(rest);
                     }
-                    huedata[id]= hueentry_t(rest);
+                    else {
+                        throw std::runtime_error("Bad line on line number: "s+std::to_string(linecount));
+                    }
+                    
                 }
             }
         }
