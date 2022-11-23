@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		64E00605292CE3A100BEBA8F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64E00604292CE3A100BEBA8F /* main.cpp */; };
+		64E0060D292CE41F00BEBA8F /* huedata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64E0060B292CE41F00BEBA8F /* huedata.cpp */; };
+		64E00611292D0FCD00BEBA8F /* argument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64E0060F292D0FCD00BEBA8F /* argument.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,11 @@
 /* Begin PBXFileReference section */
 		64E00601292CE3A100BEBA8F /* hueedit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hueedit; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E00604292CE3A100BEBA8F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		64E0060B292CE41F00BEBA8F /* huedata.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = huedata.cpp; sourceTree = "<group>"; };
+		64E0060C292CE41F00BEBA8F /* huedata.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = huedata.hpp; sourceTree = "<group>"; };
+		64E0060E292CE5B600BEBA8F /* strutil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = strutil.hpp; sourceTree = "<group>"; };
+		64E0060F292D0FCD00BEBA8F /* argument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = argument.cpp; sourceTree = "<group>"; };
+		64E00610292D0FCD00BEBA8F /* argument.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = argument.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +48,7 @@
 		64E005F8292CE3A100BEBA8F = {
 			isa = PBXGroup;
 			children = (
-				64E00603292CE3A100BEBA8F /* hueedit */,
+				64E00603292CE3A100BEBA8F /* source */,
 				64E00602292CE3A100BEBA8F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +61,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64E00603292CE3A100BEBA8F /* hueedit */ = {
+		64E00603292CE3A100BEBA8F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				64E0060F292D0FCD00BEBA8F /* argument.cpp */,
+				64E00610292D0FCD00BEBA8F /* argument.hpp */,
+				64E0060E292CE5B600BEBA8F /* strutil.hpp */,
 				64E00604292CE3A100BEBA8F /* main.cpp */,
+				64E0060B292CE41F00BEBA8F /* huedata.cpp */,
+				64E0060C292CE41F00BEBA8F /* huedata.hpp */,
 			);
-			path = hueedit;
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +102,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1410;
+				ORGANIZATIONNAME = "Charles Kerr";
 				TargetAttributes = {
 					64E00600292CE3A100BEBA8F = {
 						CreatedOnToolsVersion = 14.1;
@@ -119,6 +132,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E00611292D0FCD00BEBA8F /* argument.cpp in Sources */,
+				64E0060D292CE41F00BEBA8F /* huedata.cpp in Sources */,
 				64E00605292CE3A100BEBA8F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
