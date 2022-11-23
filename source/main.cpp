@@ -108,6 +108,8 @@ int main(int argc, const char * argv[]) {
                 auto addition = huestorage_t(arg.paths[1],maxhue) ;
                 base.merge(addition);
                 base.save(arg.paths[2]) ;
+                std::cout <<arg.paths[2].string() <<" created"<<std::endl;
+
                 break;
             }
             case action_t::extract:{
@@ -116,7 +118,8 @@ int main(int argc, const char * argv[]) {
                 }
                 auto hue = huestorage_t(arg.paths[0],maxhue);
                 hue.exportText(arg.paths[1]);
-                break;
+                std::cout <<arg.paths[1].string() <<" created"<<std::endl;
+               break;
             }
             case action_t::empty:{
                 if (arg.paths.empty()){
@@ -150,7 +153,11 @@ int main(int argc, const char * argv[]) {
                 }
                 auto hues = huestorage_t(maxhue) ;
                 hues.importText(arg.paths[1]);
+                if (hues.size()==0){
+                    throw std::runtime_error("No hues where created from "s+arg.paths[1].filename().string());
+                }
                 hues.save(arg.paths[0]);
+                std::cout <<arg.paths[0].string() <<" created"<<std::endl;
                 break;
             }
         }

@@ -54,7 +54,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "testhues1mul"
+            argument = "testhues1.mul"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
