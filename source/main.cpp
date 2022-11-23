@@ -91,6 +91,10 @@ int main(int argc, const char * argv[]) {
                 std::cout <<"\thueedit --create huemul huecvsfile\n";
                 std::cout <<"\t\tCreates a huemul from the cvs file.\n";
                 std::cout <<"\n" ;
+                std::cout << "Note:\n";
+                std::cout <<"\t--huenum=# allows one to create a hue mul greater then the 3000 limit.\n";
+                std::cout << "\t\t Where # is the max number of hue entries\n";
+                std::cout << std::endl;
                 break;
             }
             case action_t::merge:{
