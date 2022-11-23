@@ -85,8 +85,25 @@ hueentry_t::hueentry_t(const std::vector<std::uint8_t> &data):hueentry_t(){
     }
     auto buffer = std::vector<char>(21,0);
     std::copy(data.data()+offset+4,data.data()+offset+4+20,reinterpret_cast<char*>(buffer.data()));
+    for (auto j = 0; j < 20; j++) {
+          if (((buffer[j] < 32) || (buffer[j] == 44) || (buffer[j] > 127)) && (buffer[j]!=0)) {
+                buffer[j] = 45;
+          }
+    }
     huename = buffer.data() ;
     huename = strutil::trim(huename);
+    // We need to ensure this doesn't have ",", or "\n", or "\r"
+    for (auto& entry : huename) {
+          if (entry == ',') {
+                entry = '_';
+          }
+          else if (entry == '\n') {
+                entry = '_';
+          }
+          else if (entry == '\r') {
+                entry = '_';
+          }
+    }
 }
 //=======================================================================================================================
 auto hueentry_t::data() const ->std::vector<std::uint8_t> {
