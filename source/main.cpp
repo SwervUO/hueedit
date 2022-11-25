@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
     try {
         auto arg = argument_t(argc,argv) ;
         for (const auto &[key,value]:arg.flags){
-            if (key=="maxnum"){
+            if (key=="maxhue"){
                 maxhue = strutil::ston<std::uint32_t>(value) ;
                 if (maxhue%8 != 0) {
                     maxhue += (8 - (maxhue%8)) ;
