@@ -139,14 +139,11 @@ auto hueentry_t::description() const ->std::string {
 }
 //=======================================================================================================================
 auto hueentry_t::empty() const ->bool {
-    auto rvalue = false ;
-    if (huename.empty()){
-        rvalue = true ;
-        for (const auto &entry:huecolor){
-            if (!entry.empty()){
-                rvalue = false ;
-                break;
-            }
+    auto rvalue = true ;
+    for (const auto &entry:huecolor){
+        if (!entry.empty()){
+            rvalue = false ;
+            break;
         }
     }
     return rvalue ;
